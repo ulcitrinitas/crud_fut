@@ -88,4 +88,39 @@ create table usuarios_info(
     foreign key (user_id) references usuarios(user_id)
 );
 
+CREATE TABLE arbitros (
+id INT primary key AUTO_INCREMENT,
+nome VARCHAR(255) DEFAULT NULL,
+nacionalidade VARCHAR(255) DEFAULT NULL,
+descricao MEDIUMTEXT,
+foto VARCHAR(255) DEFAULT NULL,
+data_nascimento DATE DEFAULT NULL,
+data_falecimento DATE DEFAULT NULL
+);
+
+CREATE TABLE patrocinadores (
+id INT primary key AUTO_INCREMENT,
+nome VARCHAR(100) DEFAULT NULL
+);
+
+CREATE TABLE estadios (
+id INT primary key AUTO_INCREMENT,
+local_id INT DEFAULT NULL,
+nome VARCHAR(255) DEFAULT NULL,
+nome_popular VARCHAR(255) DEFAULT NULL,
+lotacao INT DEFAULT NULL,
+FOREIGN KEY (local_id) REFERENCES cidades(id)
+);
+
+CREATE TABLE times (
+id INT primary key AUTO_INCREMENT,
+
+nome VARCHAR(255) DEFAULT NULL,
+nome_completo VARCHAR(255) DEFAULT NULL,
+sigla VARCHAR(3) DEFAULT NULL,
+escudo VARCHAR(255) DEFAULT NULL,
+local_id INT DEFAULT NULL,
+FOREIGN KEY (local_id) REFERENCES cidades(id)
+);
+
 
